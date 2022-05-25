@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <!-- <h1>{{ $t("welcome") }}</h1>
+    <h1>{{ $t("welcome") }}</h1>
     <p v-html="$t('descr')"></p>
     <hr />
     <div>
@@ -20,20 +20,21 @@
           >
         </span>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  // name: "TranslationShowCase",
-  // data() {
-  //   return {
-  //     languages: {
-  //       en: { nativeName: "English" },
-  //       de: { nativeName: "Deutsch" },
-  //     },
-  //   };
-  // },
+  name: "TranslationShowCase",
+  data() {
+    return {
+      languages: {
+        en: { nativeName: "English" },
+        de: { nativeName: "Deutsch" },
+        ru: { nativeName: "Russian" },
+      },
+    };
+  },
 };
 </script>

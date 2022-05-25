@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1 class="home-title">From ideas<br />to reality</h1>
+    <h1>{{ $t("welcome") }}</h1>
     <p class="home-text">
       You don't have to be on the phone all the time to get results from an
       insurance company.

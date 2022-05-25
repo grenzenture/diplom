@@ -10,6 +10,10 @@
   "dependencies": {
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "i18next": "^21.8.4",
+    "i18next-browser-languagedetector": "^6.1.4",
+    "i18next-http-backend": "^1.4.0",
+    "i18next-vue": "^2.0.0-beta.0",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
