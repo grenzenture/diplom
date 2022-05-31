@@ -1,5 +1,22 @@
 {
   "welcome": "Welcome to Your Vue.js App",
   "descr": "<1/> For a guide and recipes on how to configure / customize this project, check out the <0>vue-cli documentation</0>.",
-  "end": "have fun!"
+  "end": "have fun!",
+  "home": {
+    "title-1": "From ideas",
+    "title-2": "to reality",
+    "text": "You don't have to be on the phone all the time to get results from an insurance company.",
+    "button": "Read more"
+  },
+  "service": {
+    "blue-title": "Our service",
+    "title-1": "Explore our business &",
+    "title-2": "Consulting Features"
+  },
+  "about": {
+    "blue-title": "Who we are",
+    "title-1": "What others take for granted,",
+    "title-2": "we pursue to infinity",
+    "text": "As human beings, we get used to the way things are really fast. But for designers and creators, the usual things are an opportunity in itself. Not only do we grasp reality in its full spectrum, but we also treat design in detail. Among all the solutions - floating in weightlessness or gravitating - we help everyone to find their one and only value."
+  }
 }

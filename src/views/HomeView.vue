@@ -1,16 +1,55 @@
 <template>
-  <div class="home">
-    <h1 class="home-title">From ideas<br />to reality</h1>
-    <h1>{{ $t("welcome") }}</h1>
-    <p class="home-text">
-      You don't have to be on the phone all the time to get results from an
-      insurance company.
-    </p>
-    <a class="home-button button" href="">Read more</a>
-    <!-- <div v-for="post in posts" :key="post.id">
+  <div class="home-bg-wrapper">
+    <div class="home section">
+      <h1 class="home-title">
+        {{ $t("home.title-1") }}<br />{{ $t("home.title-2") }}
+      </h1>
+      <!-- <h1>{{ $t("welcome") }}</h1>
+    <p v-html="$t('descr')"></p> -->
+      <p class="home-text section-text">
+        {{ $t("home.text") }}
+      </p>
+      <a class="home-button button" href="">{{ $t("home.button") }}</a>
+      <!-- <div v-for="post in posts" :key="post.id">
       <p>{{ post.test1 }}</p>
       <p>{{ post.test2 }}</p>
     </div> -->
+    </div>
+  </div>
+
+  <div class="service section">
+    <h1 class="service-title blue-title">
+      {{ $t("service.blue-title") }}
+    </h1>
+    <h1 class="service-title section-main-title">
+      {{ $t("service.title-1") }}<br />{{ $t("service.title-2") }}
+    </h1>
+    <div class="cards-wrapper">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+  </div>
+
+  <div class="about-slider-bg-wrapper">
+    <div class="about section">
+      <h1 class="about-title blue-title">
+        {{ $t("about.blue-title") }}
+      </h1>
+      <h1 class="about-title section-main-title">
+        {{ $t("about.title-1") }}<br />{{ $t("about.title-2") }}
+      </h1>
+      <p class="about-text section-text">
+        {{ $t("about.text") }}
+      </p>
+    </div>
+
+    <div class="slider section">
+      <h1 class="about-title blue-title">
+        {{ $t("about.blue-title") }}
+      </h1>
+    </div>
   </div>
 </template>
 
@@ -57,7 +96,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.home {
+.section {
   /* Center the content */
   align-items: start;
   display: flex;
@@ -69,19 +108,48 @@ export default {
   /* Take full size */
   height: 100vh;
   width: 100%;
+  z-index: 1;
+}
 
+.home-bg-wrapper {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+
+  /* Take full size */
+  height: 100vh;
+  width: 100%;
   /* Background */
-  background: url("@/assets/img/bg.png") center center / cover
-    no-repeat;
-  // background: conic-gradient(
-  //   from 90deg at 14.02% 100%,
-  //   #0357ee -15.14deg,
-  //   #aaeff4 2.47deg,
-  //   #090909 176.81deg,
-  //   #090909 319.21deg,
-  //   #0357ee 344.86deg,
-  //   #aaeff4 362.47deg
-  // );
+  /* Background */
+  // background: url("@/assets/img/bg.png") center center / cover no-repeat;
+  background: conic-gradient(
+    from 90deg at 14.02% 100%,
+    #0357ee -15.14deg,
+    #aaeff4 2.47deg,
+    #090909 176.81deg,
+    #090909 319.21deg,
+    #0357ee 344.86deg,
+    #aaeff4 362.47deg
+  );
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100vh;
+    background: conic-gradient(
+      from 90deg at 14.02% 100%,
+      #0357ee -15.14deg,
+      #aaeff4 2.47deg,
+      #090909 176.81deg,
+      #090909 319.21deg,
+      #0357ee 344.86deg,
+      #aaeff4 362.47deg
+    );
+    filter: blur(100px);
+    position: absolute;
+  }
 }
 
 .home-title {
@@ -91,14 +159,20 @@ export default {
   font-size: 50px;
   line-height: 113.4%;
   color: $CLR_LIGHT;
+
+  // чинит неработающий с after space-between
+  // margin-top: 30vh;
 }
 
-.home-text {
+.section-text {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
+}
+
+.home-text {
   color: $CLR_LIGHT;
   width: 297px;
 }
@@ -121,5 +195,83 @@ export default {
   text-decoration: none;
   text-transform: uppercase;
   margin-top: 75px;
+}
+
+.blue-title {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  color: $CLR_DEEP_BLUE;
+}
+
+.section-main-title {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 122.4%;
+}
+
+.service-title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card {
+  width: 260px;
+  height: 380px;
+  background-color: cadetblue;
+}
+
+.about-slider-bg-wrapper {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+
+  /* Take full size */
+  height: 200vh;
+  width: 100%;
+  /* Background */
+
+  background: conic-gradient(
+    from 102.51deg at -11.05% 37.9%,
+    #aaeff4 -27.83deg,
+    #0548c1 1.56deg,
+    #010101 22.95deg,
+    #010101 84.58deg,
+    #ffffff 256.03deg,
+    #ffffff 326.61deg,
+    #aaeff4 332.17deg,
+    #0548c1 361.56deg
+  );
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 200vh;
+    background: conic-gradient(
+      from 98.11deg at -18.67% 41.44%,
+      #aaeff4 -22.3deg,
+      #0548c1 0.24deg,
+      #010101 22.95deg,
+      #010101 84.58deg,
+      #ffffff 258.54deg,
+      #ffffff 325.44deg,
+      #ffffff 329.92deg,
+      #aaeff4 337.7deg,
+      #0548c1 360.24deg
+    );
+    filter: blur(100px);
+    position: absolute;
+  }
 }
 </style>

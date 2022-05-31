@@ -1,5 +1,22 @@
 {
   "welcome": "привет",
   "descr": "описание",
-  "end": "пока"
+  "end": "пока",
+  "home": {
+    "title-1": "Из идеи",
+    "title-2": "в реальность",
+    "text": "You don't have to be on the phone all the time to get results from an insurance company.",
+    "button": "Read more"
+  },
+  "service": {
+    "blue-title": "Наши услуги",
+    "title-1": "Explore our business &",
+    "title-2": "Consulting Features"
+  },
+  "about": {
+    "blue-title": "Кто мы",
+    "title-1": "What others take for granted,",
+    "title-2": "we pursue to infinity",
+    "text": "As human beings, we get used to the way things are really fast. But for designers and creators, the usual things are an opportunity in itself. Not only do we grasp reality in its full spectrum, but we also treat design in detail. Among all the solutions - floating in weightlessness or gravitating - we help everyone to find their one and only value."
+  }
 }
