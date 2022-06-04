@@ -18,5 +18,37 @@
     "title-1": "What others take for granted,",
     "title-2": "we pursue to infinity",
     "text": "As human beings, we get used to the way things are really fast. But for designers and creators, the usual things are an opportunity in itself. Not only do we grasp reality in its full spectrum, but we also treat design in detail. Among all the solutions - floating in weightlessness or gravitating - we help everyone to find their one and only value."
-  }
+  },
+  "slides": [
+    {
+      "img": "require(`@/assets/img/slide-img.png`)",
+      "title": "Management сonsulting",
+      "text": "We not only develop a set of measures to improve the management system, but also provide assistance in their implementation."
+    },
+    {
+      "img": "require(`@/assets/img/slide-img.png`)",
+      "title": "Business digitalization",
+      "text": "The introduction of the latest technologies in different areas of activity, as well as a deep transformation of products."
+    },
+    {
+      "img": "",
+      "title": "Accounting consulting",
+      "text": "Recommendations for solving problems arising when taking into account new concluded contracts, etc."
+    },
+    {
+      "img": "",
+      "title": "Legal support",
+      "text": "The success of the business can largely depend on the quality of the provision of legal services in the conduct of business activities, therefore large enterprises in the staffing table are trying to develop legal structures."
+    },
+    {
+      "img": "",
+      "title": "Solution of banking issues",
+      "text": "Analysis of the external environment is a prerequisite for the successful construction of a business structure. One of the most important external factors is interaction with the bank and bank control."
+    },
+    {
+      "img": "",
+      "title": "Analysis of financial and economic activities",
+      "text": "Based on the results of the analysis, we attach recommendations for making management decisions in the current situation."
+    },
+  ]
 }

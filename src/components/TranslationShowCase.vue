@@ -12,13 +12,17 @@
         <div class="lang-hide" :class="style" v-if="languages">
           <span v-for="(lng, index) in Object.keys(languages)" :key="lng">
             <a
-              class="tr-active"
+              class="tr-active link-hover"
               v-if="$i18next.resolvedLanguage !== lng"
               v-on:click="switchLang(lng)"
+              :class="isCurrent(lng)"
             >
               {{ languages[lng].nativeName }}
             </a>
-            <a class="tr-hidden" v-if="$i18next.resolvedLanguage === lng">
+            <a
+              class="tr-hidden link-hover"
+              v-if="$i18next.resolvedLanguage === lng"
+            >
               {{ languages[lng].nativeName }}
             </a>
             <span v-if="index < Object.keys(languages).length - 1"
@@ -114,7 +118,19 @@ export default {
   mounted: function () {
     // this.currentLang = i18next.language;
   },
+  computed: {
+    // isCurrent: function () {
+    //   if this.currentLang
+    //   console.log("test cur" + lang);
+    //   return "current";
+    // },
+  },
   methods: {
+    isCurrent: function (lang) {
+      if (this.currentLang == lang) return "current";
+      else return "";
+    },
+
     /** Переключение языка сайта */
     // switchLang(lang) {
     //   i18next.changeLanguage(lang);
@@ -143,6 +159,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.link-hover {
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  &:hover {
+    color: $CLR_BLUE;
+  }
+}
+
+.current {
+  color: $CLR_BLUE;
+}
 // .hide {
 //   opacity: 0;
 // }

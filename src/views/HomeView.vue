@@ -17,13 +17,13 @@
     </div>
   </div>
 
-  <div class="service section">
-    <h1 class="service-title blue-title">
+  <div class="service section" id="service">
+    <h2 class="service-title blue-title">
       {{ $t("service.blue-title") }}
-    </h1>
-    <h1 class="service-title section-main-title">
+    </h2>
+    <h2 class="service-title section-main-title">
       {{ $t("service.title-1") }}<br />{{ $t("service.title-2") }}
-    </h1>
+    </h2>
     <div class="cards-wrapper">
       <div class="card"></div>
       <div class="card"></div>
@@ -32,23 +32,24 @@
     </div>
   </div>
 
-  <div class="about-slider-bg-wrapper">
+  <div class="about-slider-bg-wrapper" id="about">
     <div class="about section">
-      <h1 class="about-title blue-title">
+      <h2 class="about-title blue-title">
         {{ $t("about.blue-title") }}
-      </h1>
-      <h1 class="about-title section-main-title">
+      </h2>
+      <h2 class="about-title section-main-title">
         {{ $t("about.title-1") }}<br />{{ $t("about.title-2") }}
-      </h1>
+      </h2>
       <p class="about-text section-text">
         {{ $t("about.text") }}
       </p>
     </div>
 
     <div class="slider section">
-      <h1 class="about-title blue-title">
+      <!-- <h2 class="about-title blue-title">
         {{ $t("about.blue-title") }}
-      </h1>
+      </h2> -->
+      <Slider />
     </div>
   </div>
 </template>
@@ -58,11 +59,14 @@
 // import HelloWorld from "@/components/HelloWorld.vue";
 // import server from "@/server";
 import axios from "axios";
+import Slider from "@/components/Slider.vue";
 
 export default {
   name: "HomeView",
 
-  components: {},
+  components: {
+    Slider,
+  },
 
   data() {
     return {

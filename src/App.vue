@@ -2,11 +2,11 @@
   <nav>
     <img alt="logo" src="../src/assets/img/nwcc-logo.png" />
     <div class="nav-link-wrapper">
-      <router-link to="/">Home</router-link>
-      <a href="">Service</a>
-      <a href="">About</a>
-      <a href="">Contacts</a>
-      <router-link to="/about">Career</router-link>
+      <router-link class="link-hover" to="/">Home</router-link>
+      <a class="link-hover" href="#service">Service</a>
+      <a class="link-hover" href="#about">About</a>
+      <a class="link-hover" href="#contacts">Contacts</a>
+      <router-link class="link-hover" to="/about">Career</router-link>
     </div>
     <TranslationShowCase />
     <!-- <button>EN</button> -->
@@ -22,6 +22,21 @@ export default {
   name: "App",
   components: {
     TranslationShowCase,
+  },
+  mounted() {
+    const anchors = document.querySelectorAll('a[href*="#"]');
+    for (let anchor of anchors) {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const blockID = anchor.getAttribute("href").substr(1);
+
+        document.getElementById(blockID).scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    }
   },
   // used in combination with Suspense.
   // useful when translations are not in-memory...
@@ -48,7 +63,7 @@ nav {
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  z-index: 1;
+  z-index: 2;
 
   .nav-link-wrapper {
     display: flex;
@@ -56,6 +71,14 @@ nav {
     align-items: flex-start;
     padding: 0px;
     gap: 70px;
+  }
+
+  .link-hover {
+    // color: red;
+    transition: 0.2s ease-in;
+    &:hover {
+      color: $CLR_BLUE;
+    }
   }
 
   a {
