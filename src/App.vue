@@ -6,12 +6,37 @@
       <a class="link-hover" href="#service">Service</a>
       <a class="link-hover" href="#about">About</a>
       <a class="link-hover" href="#contacts">Contacts</a>
-      <router-link class="link-hover" to="/about">Career</router-link>
+      <router-link class="link-hover" to="/career">Career</router-link>
     </div>
     <TranslationShowCase />
     <!-- <button>EN</button> -->
   </nav>
+
   <router-view />
+
+  <div class="footer" id="footer">
+    <img class="footer-logo" alt="logo" src="@/assets/img/nwcc-solo-logo.png" />
+    <div class="footer-content">
+      <div class="footer-contacts">
+        <p class="contacts-adress">
+          1146 Walker Rd. Suite D Great Falls, VA 22066
+        </p>
+        <p class="contacts-email">info@nwcc.tech</p>
+        <p class="contacs-tel">Phone: 703-775-0848</p>
+      </div>
+      <nav class="footer-menu">
+        <router-link class="link-hover" to="/" href="#home">Home</router-link>
+        <a class="link-hover" href="#service">Service</a>
+        <a class="link-hover" href="#about">About</a>
+        <a class="link-hover" href="#contacts">Contacts</a>
+        <router-link class="link-hover" to="/career">Career</router-link>
+      </nav>
+    </div>
+    <div class="footer-copyright">
+      <p>Copyright © 2022 North West Consulting Company, LLC.</p>
+      <p>All Rights Reserved.</p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -74,7 +99,6 @@ nav {
   }
 
   .link-hover {
-    // color: red;
     transition: 0.2s ease-in;
     &:hover {
       color: $CLR_BLUE;
@@ -91,6 +115,67 @@ nav {
 
     &.router-link-exact-active {
       color: $CLR_BLUE;
+    }
+  }
+}
+
+.footer {
+  background-color: #010101;
+  height: 415px;
+  padding: 0 80px;
+  z-index: 2;
+
+  .footer-logo {
+    margin-bottom: 50px;
+  }
+
+  .footer-content {
+    display: flex;
+    .footer-contacts {
+      width: 189px;
+      font-family: "Montserrat";
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      color: $CLR_LIGHT;
+      margin-right: 300px;
+
+      p {
+        margin: 0;
+        margin-bottom: 15px;
+      }
+      .contacts-adress {
+      }
+
+      .contacts-email {
+      }
+
+      .contacts-tel {
+      }
+    }
+
+    .footer-menu {
+      font-size: 14px;
+      line-height: 17px;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      position: static;
+      width: auto;
+
+      a {
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  .footer-copyright {
+    margin-top: 70px;
+    color: white;
+
+    p {
+      margin: 0;
+      margin-bottom: 5px;
     }
   }
 }

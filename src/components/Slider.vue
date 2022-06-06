@@ -165,11 +165,11 @@ export default {
     SwiperSlide,
   },
 
-  data() {
-    return {
-      items: [{ message: "Foo" }, { message: "Bar" }],
-    };
-  },
+  // data() {
+  //   return {
+  //     items: [{ message: "Foo" }, { message: "Bar" }],
+  //   };
+  // },
 
   setup() {
     return {

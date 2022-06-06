@@ -1,6 +1,6 @@
 <template>
   <div class="home-bg-wrapper">
-    <div class="home section">
+    <div class="home section" id="home">
       <h1 class="home-title">
         {{ $t("home.title-1") }}<br />{{ $t("home.title-2") }}
       </h1>
@@ -52,6 +52,8 @@
       <Slider />
     </div>
   </div>
+
+
 </template>
 
 <script>
@@ -217,6 +219,10 @@ export default {
   line-height: 122.4%;
 }
 
+.service {
+  background-color: #ffffff;
+}
+
 .service-title {
   margin: 0 auto;
   text-align: center;
@@ -246,36 +252,63 @@ export default {
   width: 100%;
   /* Background */
 
+  // background: conic-gradient(
+  //   from 102.51deg at -11.05% 37.9%,
+  //   #aaeff4 -27.83deg,
+  //   #0548c1 1.56deg,
+  //   #010101 22.95deg,
+  //   #010101 84.58deg,
+  //   #ffffff 256.03deg,
+  //   #ffffff 326.61deg,
+  //   #aaeff4 332.17deg,
+  //   #0548c1 361.56deg
+  // );
   background: conic-gradient(
-    from 102.51deg at -11.05% 37.9%,
-    #aaeff4 -27.83deg,
-    #0548c1 1.56deg,
-    #010101 22.95deg,
-    #010101 84.58deg,
+    from 104.77deg at -9.1% 39.35%,
+    #0548c1 -8.98deg,
+    #010101 11.74deg,
+    #010101 52.5deg,
+    #010101 136.12deg,
     #ffffff 256.03deg,
-    #ffffff 326.61deg,
-    #aaeff4 332.17deg,
-    #0548c1 361.56deg
+    #ffffff 317.04deg,
+    #fdffff 325.6deg,
+    #aaeff4 334.44deg,
+    #0548c1 351.02deg,
+    #010101 371.74deg
   );
 
   &::after {
     content: "";
     width: 100%;
     height: 200vh;
+    // background: conic-gradient(
+    //   from 98.11deg at -18.67% 41.44%,
+    //   #aaeff4 -22.3deg,
+    //   #0548c1 0.24deg,
+    //   #010101 22.95deg,
+    //   #010101 84.58deg,
+    //   #ffffff 258.54deg,
+    //   #ffffff 325.44deg,
+    //   #ffffff 329.92deg,
+    //   #aaeff4 337.7deg,
+    //   #0548c1 360.24deg
+    // );
     background: conic-gradient(
-      from 98.11deg at -18.67% 41.44%,
-      #aaeff4 -22.3deg,
-      #0548c1 0.24deg,
-      #010101 22.95deg,
+      from 102.59deg at -9.65% 40.45%,
+      #0548c1 -7.29deg,
+      #010101 18.2deg,
       #010101 84.58deg,
       #ffffff 258.54deg,
-      #ffffff 325.44deg,
-      #ffffff 329.92deg,
-      #aaeff4 337.7deg,
-      #0548c1 360.24deg
+      #ffffff 279.38deg,
+      #ffffff 328.26deg,
+      #aaeff4 336.52deg,
+      #0548c1 352.71deg,
+      #010101 378.2deg
     );
     filter: blur(100px);
     position: absolute;
   }
 }
+
+
 </style>

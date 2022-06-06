@@ -1,5 +1,6 @@
 <template>
-  <div class="hello">
+  <div class="section">
+    <p>lklk</p>
     <!-- <h1>{{ $t("welcome") }}</h1>
     <p v-html="$t('descr')"></p>
     <hr />
@@ -26,6 +27,7 @@
 
 <script>
 export default {
+  name: "HomeView",
   // name: "TranslationShowCase",
   // data() {
   //   return {
@@ -37,3 +39,22 @@ export default {
   // },
 };
 </script>
+
+<style lang="scss" scoped>
+.section {
+  /* Center the content */
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 80px;
+
+  /* Take full size */
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+
+  background-color: #010101;
+}
+</style>
