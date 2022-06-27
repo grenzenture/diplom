@@ -1,15 +1,15 @@
 <template>
   <div class="home-bg-wrapper">
-    <div class="home section" id="home">
-      <h1 class="home-title">
+    <div class="home section fade-block" id="home" :key="componentKey">
+      <h1 class="home-title fade">
         {{ $t("home.title-1") }}<br />{{ $t("home.title-2") }}
       </h1>
-      <!-- <h1>{{ $t("welcome") }}</h1>
-    <p v-html="$t('descr')"></p> -->
-      <p class="home-text section-text">
+      <p class="home-text section-text fade">
         {{ $t("home.text") }}
       </p>
-      <a class="home-button button" href="">{{ $t("home.button") }}</a>
+      <a class="home-button button fade" href="#service">{{
+        $t("home.button")
+      }}</a>
       <!-- <div v-for="post in posts" :key="post.id">
       <p>{{ post.test1 }}</p>
       <p>{{ post.test2 }}</p>
@@ -25,10 +25,7 @@
       {{ $t("service.title-1") }}<br />{{ $t("service.title-2") }}
     </h2>
     <div class="cards-wrapper">
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
+      <Cards />
     </div>
   </div>
 
@@ -46,14 +43,16 @@
     </div>
 
     <div class="slider section">
-      <!-- <h2 class="about-title blue-title">
-        {{ $t("about.blue-title") }}
-      </h2> -->
       <Slider />
     </div>
   </div>
 
-
+  <div class="contacts section" id="contacts">
+    <h2 class="contacts-title section-main-title">
+      {{ $t("contacts.title") }}
+    </h2>
+    <ContactForm />
+  </div>
 </template>
 
 <script>
@@ -62,17 +61,22 @@
 // import server from "@/server";
 import axios from "axios";
 import Slider from "@/components/Slider.vue";
+import Cards from "@/components/Cards.vue";
+import ContactForm from "@/components/ContactForm.vue";
 
 export default {
   name: "HomeView",
 
   components: {
     Slider,
+    Cards,
+    ContactForm,
   },
 
   data() {
     return {
       posts: null,
+      test: null,
     };
   },
 
@@ -80,6 +84,23 @@ export default {
     loading() {
       return this.posts === null;
     },
+  },
+
+  mounted() {
+    const anchors = document.querySelectorAll('a[href*="#"]');
+    for (let anchor of anchors) {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const blockID = anchor.getAttribute("href").substr(1);
+
+        document.getElementById(blockID).scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    }
+    this.fadeTextBlock(".fade-block");
   },
 
   async created() {
@@ -98,12 +119,48 @@ export default {
     // }));
     // console.log(this.posts);
   },
+
+  methods: {
+    /**
+     * Анимация появления текста
+     * Проходим по каждому блоку fade_block
+     * Затем по каждому элементу в блоке,
+     * для каждого элемента (если он виден на экране) меняем opacity с задержкой 0.3 секунды от предыдущего элемента.
+     * Две версии анимации: для использования с плавным скроллом и с обычным скроллом.
+     * @param {*} fade_block - селектор блока с текстом
+     */
+    fadeTextBlock(fade_block) {
+      console.log(fade_block);
+      setTimeout(() => {
+        let blocks = document.querySelectorAll(fade_block);
+        console.log(blocks);
+
+        for (let i = 0; i < blocks.length; i++) {
+          let block = blocks[i];
+
+          if (window.innerWidth > 1024) {
+            let delay = 0.3;
+            for (let j = 0; j < block.children.length; j++) {
+              let item = block.children[j];
+              console.log(item);
+              item.style.transition = `opacity 1.5s ease-out ${delay}s`;
+              item.style.opacity = "1";
+              delay += 0.3;
+            }
+          }
+        }
+      }, 1100);
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
+.fade {
+  opacity: 0;
+  transition: opacity 1.5s ease-out 0.2s;
+}
 .section {
-  /* Center the content */
   align-items: start;
   display: flex;
   flex-direction: column;
@@ -111,7 +168,6 @@ export default {
   box-sizing: border-box;
   padding: 0 80px;
 
-  /* Take full size */
   height: 100vh;
   width: 100%;
   z-index: 1;
@@ -124,12 +180,8 @@ export default {
   justify-content: center;
   box-sizing: border-box;
 
-  /* Take full size */
   height: 100vh;
   width: 100%;
-  /* Background */
-  /* Background */
-  // background: url("@/assets/img/bg.png") center center / cover no-repeat;
   background: conic-gradient(
     from 90deg at 14.02% 100%,
     #0357ee -15.14deg,
@@ -157,7 +209,6 @@ export default {
     position: absolute;
   }
 }
-
 .home-title {
   font-family: "Montserrat";
   font-style: normal;
@@ -210,6 +261,7 @@ export default {
   line-height: 29px;
   text-transform: uppercase;
   color: $CLR_DEEP_BLUE;
+  margin-bottom: 35px !important;
 }
 
 .section-main-title {
@@ -217,10 +269,12 @@ export default {
   font-weight: 700;
   font-size: 45px;
   line-height: 122.4%;
+  margin: 0;
+  margin-bottom: 50px !important;
 }
 
 .service {
-  background-color: #ffffff;
+  background-color: $CLR_LIGHT;
 }
 
 .service-title {
@@ -238,6 +292,11 @@ export default {
   width: 260px;
   height: 380px;
   background-color: cadetblue;
+}
+
+.about-text {
+  width: 533px;
+  margin: 0;
 }
 
 .about-slider-bg-wrapper {
@@ -310,5 +369,17 @@ export default {
   }
 }
 
+.contacts {
+  background-color: $CLR_DARK_BG;
 
+  .contacts-title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 49px;
+    color: $CLR_LIGHT;
+    text-align: center;
+    width: 100%;
+    margin-top: 80px;
+  }
+}
 </style>

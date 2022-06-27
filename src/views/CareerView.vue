@@ -1,60 +1,34 @@
 <template>
-  <div class="section">
-    <p>lklk</p>
-    <!-- <h1>{{ $t("welcome") }}</h1>
-    <p v-html="$t('descr')"></p>
-    <hr />
-    <div>
-      <div v-if="languages">
-        <span v-for="(lng, index) in Object.keys(languages)" :key="lng">
-          <a
-            v-if="$i18next.resolvedLanguage !== lng"
-            v-on:click="$i18next.changeLanguage(lng)"
-          >
-            {{ languages[lng].nativeName }}
-          </a>
-          <strong v-if="$i18next.resolvedLanguage === lng">
-            {{ languages[lng].nativeName }}
-          </strong>
-          <span v-if="index < Object.keys(languages).length - 1"
-            >&nbsp;|&nbsp;</span
-          >
-        </span>
-      </div>
-    </div> -->
+  <div class="career">
+    <VacancyCards />
   </div>
 </template>
 
 <script>
+import VacancyCards from "@/components/VacancyCards.vue";
+
 export default {
   name: "HomeView",
-  // name: "TranslationShowCase",
-  // data() {
-  //   return {
-  //     languages: {
-  //       en: { nativeName: "English" },
-  //       de: { nativeName: "Deutsch" },
-  //     },
-  //   };
-  // },
+
+  components: {
+    VacancyCards,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.section {
-  /* Center the content */
-  align-items: start;
+.career {
+  align-items: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  padding: 0 80px;
-
-  /* Take full size */
-  height: 100vh;
+  background-color: $CLR_DARK_BG;
   width: 100%;
+  padding: 0 80px;
   z-index: 1;
+  padding-top: 200px;
 
-  background-color: #010101;
 }
 </style>

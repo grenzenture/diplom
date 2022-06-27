@@ -1,21 +1,22 @@
 <template>
-  <nav>
-    <img alt="logo" src="../src/assets/img/nwcc-logo.png" />
-    <div class="nav-link-wrapper">
-      <router-link class="link-hover" to="/">Home</router-link>
-      <a class="link-hover" href="#service">Service</a>
-      <a class="link-hover" href="#about">About</a>
-      <a class="link-hover" href="#contacts">Contacts</a>
-      <router-link class="link-hover" to="/career">Career</router-link>
+  <nav class="fade-block">
+    <img alt="logo" src="../src/assets/img/nwcc-logo.png" class="fade" />
+    <div class="nav-link-wrapper fade-block">
+      <router-link class="link-hover  fade" to="/">Home</router-link>
+      <a class="link-hover fade" href="#service">Service</a>
+      <a class="link-hover  fade" href="#about">About</a>
+      <a class="link-hover  fade" href="#contacts">Contacts</a>
+      <router-link class="link-hover  fade" to="/career">Career</router-link>
     </div>
     <TranslationShowCase />
-    <!-- <button>EN</button> -->
   </nav>
 
-  <router-view />
+  <router-view :key="$route.fullPath" />
 
   <div class="footer" id="footer">
-    <img class="footer-logo" alt="logo" src="@/assets/img/nwcc-solo-logo.png" />
+    <div class="footer-logo">
+      <img alt="logo" src="@/assets/img/nwcc-solo-logo.png" />
+    </div>
     <div class="footer-content">
       <div class="footer-contacts">
         <p class="contacts-adress">
@@ -32,6 +33,7 @@
         <router-link class="link-hover" to="/career">Career</router-link>
       </nav>
     </div>
+    <FormulateInput type="text" label="What is your name?" v-model="value" />
     <div class="footer-copyright">
       <p>Copyright © 2022 North West Consulting Company, LLC.</p>
       <p>All Rights Reserved.</p>
@@ -41,27 +43,54 @@
 
 <script>
 import TranslationShowCase from "./components/TranslationShowCase.vue";
-// import { i18nextPromise } from "./i18n.js";
+import LangSwitcher from "./components/LangSwitcher.vue";
+import { i18nextPromise } from "./i18n.js";
 
 export default {
   name: "App",
+  provide() {
+    return {
+      reload: this.reload,
+    };
+  },
   components: {
     TranslationShowCase,
+    LangSwitcher,
   },
-  mounted() {
-    const anchors = document.querySelectorAll('a[href*="#"]');
-    for (let anchor of anchors) {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
 
-        const blockID = anchor.getAttribute("href").substr(1);
+  data() {
+    return {
+      value: "My initial value",
+      isRouterAlive: true,
+    };
+  },
 
-        document.getElementById(blockID).scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      });
+  async setup() {
+    await i18nextPromise;
+    return {};
+  },
+
+    methods:{
+    reload(){
+      this.isRouterAlive = false;
+      this.$nextTick(function(){
+        this.isRouterAlive = true;
+      })
     }
+  },
+
+  mounted() {
+    // const anchors = document.querySelectorAll('a[href*="#"]');
+    // for (let anchor of anchors) {
+    //   anchor.addEventListener("click", function (e) {
+    //     e.preventDefault();
+    //     const blockID = anchor.getAttribute("href").substr(1);
+    //     document.getElementById(blockID).scrollIntoView({
+    //       behavior: "smooth",
+    //       block: "start",
+    //     });
+    //   });
+    // }
   },
   // used in combination with Suspense.
   // useful when translations are not in-memory...
@@ -74,6 +103,12 @@ export default {
 
 <style lang="scss">
 // @import "normalize-scss/sass/normalize/import-now";
+
+.fade {
+  opacity: 0;
+  transition: opacity 1.5s ease-out 0.2s;
+}
+
 #app {
   font-family: "Montserrat";
   -webkit-font-smoothing: antialiased;
@@ -110,7 +145,7 @@ nav {
     font-size: 16px;
     line-height: 20px;
     text-transform: uppercase;
-    color: white;
+    color: $CLR_LIGHT;
     text-decoration: none;
 
     &.router-link-exact-active {
@@ -120,13 +155,19 @@ nav {
 }
 
 .footer {
-  background-color: #010101;
+  background-color: $CLR_DARK_BG;
   height: 415px;
   padding: 0 80px;
   z-index: 2;
+  padding-top: 50px;
 
   .footer-logo {
     margin-bottom: 50px;
+    display: flex;
+
+    img {
+      z-index: 1;
+    }
   }
 
   .footer-content {
@@ -138,7 +179,7 @@ nav {
       font-size: 16px;
       line-height: 20px;
       color: $CLR_LIGHT;
-      margin-right: 300px;
+      margin-right: 30%;
 
       p {
         margin: 0;
@@ -162,6 +203,7 @@ nav {
       padding: 0;
       position: static;
       width: auto;
+      align-items: flex-start;
 
       a {
         padding-bottom: 10px;
@@ -171,7 +213,7 @@ nav {
 
   .footer-copyright {
     margin-top: 70px;
-    color: white;
+    color: $CLR_LIGHT;
 
     p {
       margin: 0;

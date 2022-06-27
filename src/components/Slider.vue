@@ -53,9 +53,9 @@
       <div class="swiper-pagination"></div>
     </div>
 
-    <li v-for="item in items" :key="item.message">
+    <!-- <li v-for="item in items" :key="item.message">
       {{ item.message }}
-    </li>
+    </li> -->
 
     <swiper-slide v-for="slide in $options.slides" :key="key">
       <div class="slide-wrapper">
@@ -121,8 +121,6 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import "./style.css";
-
 // import required modules
 import { EffectFade, Pagination, Navigation } from "swiper";
 
@@ -134,27 +132,27 @@ export default {
       text: "We not only develop a set of measures to improve the management system, but also provide assistance in their implementation.",
     },
     {
-      img: require(`@/assets/img/slide-img.png`),
+      img: require(`@/assets/img/img3.png`),
       title: "Business digitalization",
       text: "The introduction of the latest technologies in different areas of activity, as well as a deep transformation of products.",
     },
     {
-      img: "",
+      img: require(`@/assets/img/img1.png`),
       title: "Accounting consulting",
       text: "Recommendations for solving problems arising when taking into account new concluded contracts, etc.",
     },
     {
-      img: "",
+      img: require(`@/assets/img/img2.png`),
       title: "Legal support",
       text: "The success of the business can largely depend on the quality of the provision of legal services in the conduct of business activities, therefore large enterprises in the staffing table are trying to develop legal structures.",
     },
     {
-      img: "",
+      img: require(`@/assets/img/img4.png`),
       title: "Solution of banking issues",
       text: "Analysis of the external environment is a prerequisite for the successful construction of a business structure. One of the most important external factors is interaction with the bank and bank control.",
     },
     {
-      img: "",
+      img: require(`@/assets/img/img3.png`),
       title: "Analysis of financial and economic activities",
       text: "Based on the results of the analysis, we attach recommendations for making management decisions in the current situation.",
     },
@@ -164,12 +162,6 @@ export default {
     Swiper,
     SwiperSlide,
   },
-
-  // data() {
-  //   return {
-  //     items: [{ message: "Foo" }, { message: "Bar" }],
-  //   };
-  // },
 
   setup() {
     return {
